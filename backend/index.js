@@ -13,6 +13,9 @@ const jwt = require('jsonwebtoken');
 // Jelszavak biztonságos hashelésére szolgáló könyvtár (bcrypt) importálása
 const bcrypt = require('bcryptjs');
 
+// Verziószám (ezt akár a package.json-ból is beolvashatnád)
+const APP_VERSION = "1.0.0";
+
 console.log('Alkalmazás indul, modulok betöltve.');
 
 // Express alkalmazás létrehozása
@@ -153,6 +156,23 @@ app.get('/data', authenticateToken, async (req, res) => {
   }
 });
 
+// Teszt végpont, ami egy verziószámot ad vissza (POST /test) - védett végpont
+app.post('/test', authenticateToken, async (req, res) => {
+  console.log(`[POST /test] Kérés érkezett. Authentikált felhasználó:`, req.user);
+  try {
+    // Itt nem használjuk a req.body-t, de logolhatjuk, ha szükséges
+    // console.log(`[POST /test] Body:`, req.body);
+
+    console.log('[POST /test] Verziószám visszaadása...');
+    res.json({ version: APP_VERSION, message: "Test endpoint reached successfully." });
+  } catch (err) {
+    console.error('[POST /test] Hiba a /test végponton:', err);
+    if (!res.headersSent) {
+        res.status(500).json({ message: 'Error processing test request. Please try again.' });
+    }
+  }
+});
+
 // Új 'data' rekord felvitele (POST /data) - szintén védett végpont
 app.post('/data', authenticateToken, async (req, res) => {
   console.log(`[POST /data] Kérés érkezett. Body:`, req.body, `Authentikált felhasználó:`, req.user);
@@ -235,4 +255,3 @@ process.on('uncaughtException', (error) => {
 });
 
 console.log('Az index.js végére ért a feldolgozás (a szerver figyelése elindult).');
-
