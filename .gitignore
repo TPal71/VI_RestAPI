@@ -1,0 +1,64 @@
+# FONTOS: Környezeti változókat tartalmazó fájl, soha ne kerüljön a repositoryba!
+.env
+*.env
+.env.*
+!/.env.example # Ha van példa .env fájlod, azt érdemes lehet bent hagyni
+
+# Node.js függőségek
+node_modules/
+
+# Naplófájlok
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Operációs rendszer által generált fájlok
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE/Editor specifikus konfigurációs fájlok és könyvtárak
+.idea/
+.vscode/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw? # Vim swap files
+
+# Build kimenetek (ha vannak)
+dist/
+build/
+out/
+public/ # Ha a frontend build ide kerül, és nem akarod a backend repóban tárolni
+
+# Teszt riportok és coverage
+coverage/
+.nyc_output/
+junit.xml
+
+# Ideiglenes fájlok
+*.tmp
+*.temp
+*~
+*.bak
+*.orig
+
+# Csomagkezelő lock fájlok (opcionális, de sokan bent tartják a konzisztencia miatt)
+# Ha ki akarod hagyni őket, vedd ki a kommentet az alábbiakból:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Egyéb specifikus fájlok, amiket nem akarsz verziókezelni
+# pl. adatbázis dumpok, feltöltött fájlok helyi másolatai stb.
+# *.sqlite
+# local_uploads/

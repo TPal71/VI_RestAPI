@@ -1,7 +1,54 @@
-restapi
-fktEIAWgnFbT]nc*
 
 
-Backend
-npm init -y
-npm install express mysql2 sequelize jsonwebtoken bcryptjs cors dotenv
+# VI_RestApi Backend
+
+Ez a projekt egy REST API backendet valósít meg Node.js, Express.js és Sequelize segítségével, JWT alapú autentikációval.
+
+## Tartalomjegyzék
+
+- [Előfeltételek](#előfeltételek)
+- [Telepítés](#telepítés)
+- [Környezeti Változók Beállítása](#környezeti-változók-beállítása)
+- [Az Alkalmazás Futtatása](#az-alkalmazás-futtatása)
+- [API Végpontok](#api-végpontok)
+- [Használt Technológiák](#használt-technológiák)
+
+## Előfeltételek
+
+A projekt futtatásához a következőkre lesz szükséged:
+
+- [Node.js](https://nodejs.org/) (LTS verzió ajánlott)
+- [npm](https://www.npmjs.com/) (Node.js-sel együtt települ) vagy [Yarn](https://yarnpkg.com/)
+- [MySQL](https://www.mysql.com/) adatbázis-szerver (vagy a `dialect` opciónak megfelelő adatbázis)
+
+## Telepítés
+
+1.  Klónozd a repositoryt (ha még nem tetted meg):
+    ```bash
+    git clone https://github.com/TPal71/VI_RestApi.git
+    cd VI_RestApi
+    ```
+
+2.  Telepítsd a backend függőségeket a `backend` könyvtárban:
+    ```bash
+    cd backend
+    npm install
+    ```
+    Vagy ha Yarn-t használsz:
+    ```bash
+    yarn install
+    ```
+
+## Környezeti Változók Beállítása
+
+A projekt konfigurációja környezeti változókon keresztül történik. Hozz létre egy `.env` fájlt a `backend` könyvtárban a `backend/.env.example` (ha létezik) vagy az alábbi minta alapján, és töltsd ki a saját adataiddal:
+
+```env
+DB_HOST=localhost
+DB_USER=restapi_user_neved
+DB_PASSWORD=a_te_adatbazis_jelszavad
+DB_NAME=restapi_adatbazis_neve
+JWT_SECRET=nagyonBiztonsagosTitkosKulcsodIde
+JWT_EXPIRES_IN=1h
+PORT=3000
+NODE_ENV=development # lehet 'production' éles környezetben
