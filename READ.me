@@ -1,54 +1,52 @@
-
-
 # VI_RestApi Backend
 
-Ez a projekt egy REST API backendet valósít meg Node.js, Express.js és Sequelize segítségével, JWT alapú autentikációval.
+This project implements a REST API backend using Node.js, Express.js, and Sequelize, with JWT-based authentication.
 
-## Tartalomjegyzék
+## Table of Contents
 
-- [Előfeltételek](#előfeltételek)
-- [Telepítés](#telepítés)
-- [Környezeti Változók Beállítása](#környezeti-változók-beállítása)
-- [Az Alkalmazás Futtatása](#az-alkalmazás-futtatása)
-- [API Végpontok](#api-végpontok)
-- [Használt Technológiák](#használt-technológiák)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Setting Up Environment Variables](#setting-up-environment-variables)
+- [Running the Application](#running-the-application)
+- [API Endpoints](#api-endpoints)
+- [Technologies Used](#technologies-used)
 
-## Előfeltételek
+## Prerequisites
 
-A projekt futtatásához a következőkre lesz szükséged:
+To run this project, you will need the following:
 
-- [Node.js](https://nodejs.org/) (LTS verzió ajánlott)
-- [npm](https://www.npmjs.com/) (Node.js-sel együtt települ) vagy [Yarn](https://yarnpkg.com/)
-- [MySQL](https://www.mysql.com/) adatbázis-szerver (vagy a `dialect` opciónak megfelelő adatbázis)
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [npm](https://www.npmjs.com/) (installs with Node.js) or [Yarn](https://yarnpkg.com/)
+- [MySQL](https://www.mysql.com/) database server (or a database corresponding to the `dialect` option)
 
-## Telepítés
+## Installation
 
-1.  Klónozd a repositoryt (ha még nem tetted meg):
+1.  Clone the repository (if you haven't already):
     ```bash
     git clone https://github.com/TPal71/VI_RestApi.git
     cd VI_RestApi
     ```
 
-2.  Telepítsd a backend függőségeket a `backend` könyvtárban:
+2.  Install the backend dependencies in the `backend` directory:
     ```bash
     cd backend
     npm install
     ```
-    Vagy ha Yarn-t használsz:
+    Or if you use Yarn:
     ```bash
     yarn install
     ```
 
-## Környezeti Változók Beállítása
+## Setting Up Environment Variables
 
-A projekt konfigurációja környezeti változókon keresztül történik. Hozz létre egy `.env` fájlt a `backend` könyvtárban a `backend/.env.example` (ha létezik) vagy az alábbi minta alapján, és töltsd ki a saját adataiddal:
+The project configuration is managed through environment variables. Create a `.env` file in the `backend` directory based on `backend/.env.example` (if it exists) or the template below, and fill in your own details:
 
 ```env
 DB_HOST=localhost
-DB_USER=restapi_user_neved
-DB_PASSWORD=a_te_adatbazis_jelszavad
-DB_NAME=restapi_adatbazis_neve
-JWT_SECRET=nagyonBiztonsagosTitkosKulcsodIde
+DB_USER=your_restapi_username
+DB_PASSWORD=your_database_password
+DB_NAME=your_restapi_database_name
+JWT_SECRET=yourVerySecureSecretKeyHere
 JWT_EXPIRES_IN=1h
 PORT=3000
-NODE_ENV=development # lehet 'production' éles környezetben
+NODE_ENV=development # can be 'production' in a live environment
